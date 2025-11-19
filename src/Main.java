@@ -4,40 +4,39 @@ import respository.AutorRespository;
 
 public class Main {
     public static void main(String[] args) {
-        ScannerUtils scannerUtils = new ScannerUtils();
-        AutorRespository AutorRespository = new AutorRespository();
-        boolean MenuActivo = true;
+        ScannerUtils ScannerUtils = new ScannerUtils();
+        boolean EstaEjecutando = true;
+        while (EstaEjecutando) {
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Libros");
+            System.out.println("2. Autores");
+            System.out.println("3. Préstamos");
+            System.out.println("4. Salir");
 
-        while (MenuActivo){
-            byte eleccion = scannerUtils.leerByte(
-                    "\nSeleccione una opcion:\n" +
-                            "1. Listar Autores\n" +
-                            "2. Insertar Autor\n" +
-                            "3. Eliminar Autor\n" +
-                            "4. Salir\n" +
-                            "Opcion: "
-            );
-            switch (eleccion){
+            int opcion = ScannerUtils.leerEntero("Ingrese el número de la opción deseada: ");
+
+            switch (opcion) {
                 case 1:
-                    AutorRespository.ListarAutores();
+                    System.out.println("Has seleccionado Libros.");
+                    // Aquí puedes agregar la lógica para manejar libros
                     break;
                 case 2:
-                    String nombre = scannerUtils.leerLinea("Ingrese el nombre del autor: ");
-                    String nacionalidad = scannerUtils.leerLinea("Ingrese la nacionalidad del autor: ");
-                    AutorRespository.InsertarAutor(nombre, nacionalidad);
+                    System.out.println("Has seleccionado Autores.");
+                    // Aquí puedes agregar la lógica para manejar autores
                     break;
                 case 3:
-                    int idEliminar = scannerUtils.leerEntero("Ingrese el ID del autor a eliminar: ");
-                    AutorRespository.EliminarAutor(idEliminar);
+                    System.out.println("Has seleccionado Préstamos.");
+                    // Aquí puedes agregar la lógica para manejar préstamos
                     break;
                 case 4:
-                    System.out.println("Saliendo del programa...");
-                    MenuActivo = false;
+                    System.out.println("Saliendo del programa. ¡Hasta luego!");
+                    EstaEjecutando = false;
                     break;
                 default:
-                    System.out.println("Opcion invalida. Por favor, intente de nuevo.");
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                    break;
             }
-        }
 
+        }
     }
 }
