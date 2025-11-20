@@ -4,15 +4,15 @@ package model;
         private String isbn;
         private String titulo;
         private int autorId;
-        private int anioPublicacion;
+        private int añoPublicacion;
         private int cantidadTotal;
         private int cantidadDisponible;
 
-        public Libro(String isbn, String titulo, int autorId, int anioPublicacion, int cantidadTotal, int cantidadDisponible) {
+        public Libro(String isbn, String titulo, int autorId, int añoPublicacion, int cantidadTotal, int cantidadDisponible) {
             this.isbn = isbn;
             this.titulo = titulo;
             this.autorId = autorId;
-            this.anioPublicacion = anioPublicacion;
+            this.añoPublicacion = añoPublicacion;
             this.cantidadTotal = cantidadTotal;
             this.cantidadDisponible = Math.min(cantidadDisponible, cantidadTotal);
         }
@@ -41,12 +41,12 @@ package model;
             this.autorId = autorId;
         }
 
-        public int getAnioPublicacion() {
-            return anioPublicacion;
+        public int getAñoPublicacion() {
+            return añoPublicacion;
         }
 
-        public void setAnioPublicacion(int anioPublicacion) {
-            this.anioPublicacion = anioPublicacion;
+        public void setAñoPublicacion(int anioPublicacion) {
+            this.añoPublicacion = anioPublicacion;
         }
 
         public int getCantidadTotal() {

@@ -127,9 +127,10 @@ public class AutorRespository {
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
+                String nombreAutor = resultSet.getString("nombre");
                 String nacionalidad = resultSet.getString("nacionalidad");
 
-                System.out.println("ID: " + id + ", Nombre: " + nombre + ", Nacionalidad: " + nacionalidad);
+                System.out.println("ID: " + id + ", Nombre: " + nombreAutor + ", Nacionalidad: " + nacionalidad);
             }
 
         } catch (Exception e) {
@@ -149,8 +150,9 @@ public class AutorRespository {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String nombre = resultSet.getString("nombre");
+                String nacionalidadAutor = resultSet.getString("nacionalidad");
 
-                System.out.println("ID: " + id + ", Nombre: " + nombre + ", Nacionalidad: " + nacionalidad);
+                System.out.println("ID: " + id + ", Nombre: " + nombre + ", Nacionalidad: " + nacionalidadAutor);
             }
 
         } catch (Exception e) {
