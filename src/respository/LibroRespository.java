@@ -111,4 +111,33 @@ public class LibroRespository{
         }
         return libroEncontrado;
     }
+    public List<Libro> filtrarLibrosPorTitulo(String titulo){
+        // Usar LIKE para buscar coincidencias parciales en el título
+        String sql = "SELECT * FROM libros WHERE titulo LIKE ?";
+        List<Libro> librosFiltrados = new ArrayList<>();
+        try (Connection connection = Conexion.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "%" + titulo + "%");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String isbn = resultSet.getString("isbn");
+                String tituloEncontrado = resultSet.getString("titulo");
+                int autorId = resultSet.getInt("autor_id");
+                int año_publicacion = resultSet.getInt("año_publicacion");
+                int cantidadTotal = resultSet.getInt("cantidad_total");
+                int cantidadDisponible = resultSet.getInt("cantidad_disponible");
+
+                // Crear el objeto Libro con el título de la base de datos
+                Libro libroEncontrado = new Libro(isbn, tituloEncontrado, autorId, año_publicacion, cantidadTotal, cantidadDisponible);
+                librosFiltrados.add(libroEncontrado);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return librosFiltrados;
+    }
+
 }

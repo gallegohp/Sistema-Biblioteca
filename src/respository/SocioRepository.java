@@ -1,6 +1,6 @@
 package respository;
 
-import db.Conexion;
+import v db.Conexion;
 import model.Socio;
 
 import java.sql.Connection;
@@ -13,7 +13,6 @@ import java.util.List;
 
 public class SocioRepository {
 
-    // Helper method para mapear una fila del ResultSet a un objeto Socio
     private Socio mapearSocio(ResultSet rs) throws SQLException {
         int id = rs.getInt("id");
         String nombre = rs.getString("nombre");

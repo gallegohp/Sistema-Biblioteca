@@ -7,6 +7,7 @@ package model;
         private int añoPublicacion;
         private int cantidadTotal;
         private int cantidadDisponible;
+        private boolean prestamo;
 
         public Libro(String isbn, String titulo, int autorId, int añoPublicacion, int cantidadTotal, int cantidadDisponible) {
             this.isbn = isbn;
@@ -66,6 +67,13 @@ package model;
 
         public void setCantidadDisponible(int cantidadDisponible) {
             this.cantidadDisponible = Math.min(cantidadDisponible, this.cantidadTotal);
+        }
+
+        public boolean isPrestamo() {
+            return prestamo;
+        }
+        public void setPrestamo(boolean prestamo) {
+            this.prestamo = prestamo;
         }
     }
 

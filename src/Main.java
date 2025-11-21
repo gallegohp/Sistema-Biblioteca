@@ -180,7 +180,37 @@ public class Main {
                             }
                             System.out.println("======================================");
                             break;
-                        default:
+                        case 5:
+                            System.out.println("--------------------------------------");
+                            String isbnBuscar = ScannerUtils.leerLinea("Ingrese el ISBN del libro a buscar: ");
+                            Libro libroEncontrado = LibroRespository.buscarLibroPorIsbn(isbnBuscar);
+                            if (libroEncontrado != null) {
+                                System.out.println("--------------------------------------");
+                                System.out.println("ISBN: " + libroEncontrado.getIsbn() +
+                                        ", Título: " + libroEncontrado.getTitulo() +
+                                        ", Autor ID: " + libroEncontrado.getAutorId() +
+                                        ", Año de Publicación: " + libroEncontrado.getAñoPublicacion() +
+                                        ", Cantidad Total: " + libroEncontrado.getCantidadTotal() +
+                                        ", Cantidad Disponible: " + libroEncontrado.getCantidadDisponible());
+                            } else {
+                                System.out.println("Libro no encontrado con ISBN: " + isbnBuscar);
+                            }
+                            break;
+                        case 6:
+                            System.out.println("--------------------------------------");
+                            String tituloBuscar = ScannerUtils.leerLinea("Ingrese el título del libro a buscar: ");
+
+                            for (Libro libro : LibroRespository.filtrarLibrosPorTitulo(tituloBuscar)) {
+                                System.out.println("ISBN: " + libro.getIsbn() +
+                                        ", Título: " + libro.getTitulo() +
+                                        ", Autor ID: " + libro.getAutorId() +
+                                        ", Año de Publicación: " + libro.getAñoPublicacion() +
+                                        ", Cantidad Total: " + libro.getCantidadTotal() +
+                                        ", Cantidad Disponible: " + libro.getCantidadDisponible());
+                            }
+                            break;
+
+                            default:
                             System.out.println("Opción no válida. Por favor, intente de nuevo.");
                             break;
                     }
